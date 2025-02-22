@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Crear Paciente</h1>
+<form id="crearPacienteForm">
+    <div class="form-group">
+        <label for="codigo">codigo</label>
+        <input type="text" class="form-control" id="codigo" name="codigo" required>
+    </div>
+    <div class="form-group">
+        <label for="nombremascota">Nombre Mascota</label>
+        <input type="text" class="form-control" id="nombremascota" name="nombremascota" required>
+    </div>
+    <div class="form-group">
+        <label for="especie">Especie</label>
+        <input type="text" class="form-control" id="especie" name="especie" required>
+    </div>
+    <div class="form-group">
+        <label for="raza">Raza</label>
+        <input type="text" class="form-control" id="raza" name="raza" required>
+    </div>
+    <div class="form-group">
+        <label for="edad">Edad</label>
+        <input type="number" class="form-control" id="edad" name="edad" required>
+    </div>
+    <div class="form-group">
+        <label for="peso">Peso</label>
+        <input type="number" class="form-control" id="peso" name="peso" required>
+    </div>
+    <div class="form-group">
+        <label for="diagnostico">Diagnóstico</label>
+        <input type="text" class="form-control" id="diagnostico" name="diagnostico" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Crear</button>
+</form>
+
+<script>
+document.getElementById("crearPacienteForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const formData = {
+        codigo: parseInt(document.getElementById("codigo").value),
+        nombremascota: document.getElementById("nombremascota").value,
+        especie: document.getElementById("especie").value,
+        raza: document.getElementById("raza").value,
+        edad: parseInt(document.getElementById("edad").value),
+        peso: parseInt(document.getElementById("peso").value),
+        diagnostico: document.getElementById("diagnostico").value,
+    };
+
+    const response = await fetch("/crear", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+        alert("Paciente creado exitosamente");
+        window.location.href = "/";
+    } else {
+        const error = await response.json();
+        alert(`Error: ${error.detail}`);
+    }
+});
+</script>
+{% endblock %}

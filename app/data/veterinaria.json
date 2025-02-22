@@ -1,0 +1,20 @@
+[
+    {
+        "codigo": 123,
+        "nombremascota": "paco",
+        "especie": "perro ",
+        "raza": "labrador",
+        "edad": 3,
+        "peso": 4,
+        "diagnostico": "sano"
+    },
+    {
+        "codigo": 4321,
+        "nombremascota": "man",
+        "especie": "gato",
+        "raza": "nose",
+        "edad": 2,
+        "peso": 3,
+        "diagnostico": "mal"
+    }
+]
