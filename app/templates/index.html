@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Paciente</h1>
+<a href="/crear" class="btn btn-primary">Crear Paciente</a>
+
+<!-- Formulario de búsqueda -->
+<form action="/buscar" method="get" class="my-3">
+    <div class="input-group">
+        <input type="text" name="codigo" class="form-control" placeholder="codigo" required>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>codigo</th>
+            <th>nombremascota</th>
+            <th>especie</th>
+            <th>raza</th>
+            <th>edad</th>
+            <th>peso</th>
+            <th>diagnostico</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for veterinaria in veterinaria %}  
+        <tr> <!-- Aquí agregamos la etiqueta <tr> -->
+            <td>{{ veterinaria.codigo }}</td>
+            <td>{{ veterinaria.nombremascota }}</td>
+            <td>{{ veterinaria.especie }}</td>
+            <td>{{ veterinaria.raza }}</td>
+            <td>{{ veterinaria.edad }}</td>
+            <td>{{ veterinaria.peso }}</td>
+            <td>{{ veterinaria.diagnostico }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

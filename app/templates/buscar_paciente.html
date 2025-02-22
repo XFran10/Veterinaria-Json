@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Paciente Encontrado</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>codigo</th>
+            <th>nombremascota</th>
+            <th>especie</th>
+            <th>raza</th>
+            <th>edad</th>
+            <th>peso</th>
+            <th>diagnostico</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ veterinaria.codigo }}</td>
+            <td>{{ veterinaria.nombremascota }}</td>
+            <td>{{ veterinaria.especie }}</td>
+            <td>{{ veterinaria.raza }}</td>
+            <td>{{ veterinaria.edad }}</td>
+            <td>{{ veterinaria.peso }}</td>
+            <td>{{ veterinaria.diagnostico }}</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
